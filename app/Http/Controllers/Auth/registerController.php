@@ -20,8 +20,37 @@ class registerController extends Controller
             'username' => 'required|max:30',
             'password' => 'required|confirmed|min:6',
         ]);
+
+        $data = $req->all();
+        $check = $this->create($data);
+         
+        return redirect("dashboard")->withSuccess('You have signed-in successfully');
     }  
 
+    public function create(array $data){
+        return User::create([
+            'name' => $data['name'],
+            'email' => $data['email'],
+            'username' => $data['username'],
+            'password' => Hash::make($data['password']),
+      ]);
+    }
+    
+    //return $req;
+        //dd($req);
         
+        // User::create([
+        //     'name' => $req->name,
+        //     'email' => $req->email,
+        //     'username' => $req->username,
+        //     'password' => Hash::make($req->password),
+        // ]);
+
+        //return redirect("dashboard")->withSuccess('You have signed-in successfully');
+        //return redirect()->route('/dashboard');
+
+        //store the user in the database
+        //Sign in the user
+        //redirect page
     
 }
