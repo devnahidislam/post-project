@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Auth;
 
-use APP\Models\User;
+use App\Models\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -34,6 +34,7 @@ class registerController extends Controller
             'username' => $data['username'],
             'password' => Hash::make($data['password']),
       ]);
+      return redirect("dashboard")->withSuccess('You have signed-in successfully');
     }
     
     //return $req;
@@ -46,7 +47,7 @@ class registerController extends Controller
         //     'password' => Hash::make($req->password),
         // ]);
 
-        //return redirect("dashboard")->withSuccess('You have signed-in successfully');
+        
         //return redirect()->route('/dashboard');
 
         //store the user in the database
