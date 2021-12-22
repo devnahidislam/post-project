@@ -10,7 +10,7 @@ class dashboardController extends Controller
     //     $this->middleware(['auth']);
     // }
     public function index(){
-        //dd(auth()->user()->name);
+        //dd(auth()->user()->posts);
         return view('dashboard');
     }
 }

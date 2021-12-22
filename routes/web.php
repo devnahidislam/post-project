@@ -1,13 +1,15 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\postsController;
+use App\Http\Controllers\postLikeController;
 use App\Http\Controllers\dashboardController;
 use App\Http\Controllers\Auth\loginController;
 use App\Http\Controllers\Auth\logOutController;
 use App\Http\Controllers\Auth\registerController;
 
 //Home page
-Route::get('/home', function () {
+Route::get('/', function () {
     return view('home');
 })->name('home');
 
@@ -22,8 +24,10 @@ Route::get('/login', [loginController::class, 'index'])->name('login');
 Route::post('/login', [loginController::class, 'store']);
 //Logout User
 Route::post('/logout', [logOutController::class, 'store'])->name('logout');
-
-Route::get('/posts', function () {
-    return view('post.index');
-});
-
+//post publish...
+Route::get('/posts', [postsController::class, 'index'])->name('posts')->middleware('auth');
+Route::post('/posts', [postsController::class, 'store']);
+//PostLikeController for like post
+Route::post('/post/{post}/like', [postLikeController::class, 'store'])->name('post.like')->middleware('auth');
+// post Unlike route below
+Route::delete('/post/{post}/like', [postLikeController::class, 'destroy'])->name('post.like')->middleware('auth');
