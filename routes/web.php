@@ -25,8 +25,9 @@ Route::post('/login', [loginController::class, 'store']);
 //Logout User
 Route::post('/logout', [logOutController::class, 'store'])->name('logout');
 //post publish...
-Route::get('/posts', [postsController::class, 'index'])->name('posts')->middleware('auth');
-Route::post('/posts', [postsController::class, 'store']);
+Route::get('/posts', [postsController::class, 'index'])->name('posts');
+Route::post('/posts', [postsController::class, 'store'])->middleware('auth');
+Route::delete('/posts/{post}', [postsController::class, 'destroy'])->name('posts.destroy');
 //PostLikeController for like post
 Route::post('/post/{post}/like', [postLikeController::class, 'store'])->name('post.like')->middleware('auth');
 // post Unlike route below

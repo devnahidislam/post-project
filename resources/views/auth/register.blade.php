@@ -56,6 +56,10 @@
 
         <button type="submit" class="bg-blue-500 text-white p-2 w-full rounded font-medium">Register</button>
       </form>
+      <div class="flex justify-center mt-5">
+        <span class="font-medium">Already a member?</span>
+        <a href="{{ route('login') }}" class="text-blue-800 ml-2 font-medium">Login</a>
+      </div>
     </div>
   </div>
 @endsection

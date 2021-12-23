@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Auth;
 class postsController extends Controller
 {
     public function index(){
-        $posts = post::orderBy('created_at', 'DESC')->paginate(8);
+        $posts = post::latest()->with(['user','likes'])->paginate(8);
         //$posts = post::where('user_id', Auth::id())->orderBy('created_at', 'DESC')
         //->paginate(4);
         return view('post.index', [
@@ -36,5 +36,11 @@ class postsController extends Controller
         //     'user_id'=>auth()->id(),
         //     'body'=>$req->body,
         // ]);
+    }
+
+    public function destroy(post $post){
+        $post->delete();
+
+        return back();
     }
 }
