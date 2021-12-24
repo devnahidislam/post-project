@@ -39,8 +39,13 @@ class postsController extends Controller
     }
 
     public function destroy(post $post){
+        $this->authorize('delete', $post);
         $post->delete();
 
         return back();
+    }
+
+    public function show(post $post){
+        return view('post.show', ['post'=>$post]);
     }
 }

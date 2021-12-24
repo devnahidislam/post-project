@@ -49,11 +49,16 @@ class User extends Authenticatable
 
     //One user have many post that's why I declare a function
     public function posts() {
-        return $this->hasMany(Post::class);
+        return $this->hasMany(post::class);
     }
 
     // Likes in posts
     public function likes(){
         return $this->hasMany(Like::class);
+    }
+
+    // Like amount of total post of user
+    public function receivedLikes(){
+        return $this->hasManyThrough(Like::class, post::class);
     }
 }
