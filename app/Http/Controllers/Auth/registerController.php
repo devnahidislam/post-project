@@ -15,7 +15,7 @@ class registerController extends Controller{
         return view('auth.register');
     }
     public function store(Request $req){
-        dd($req->only('email', 'password'));
+        //dd($req->only('email', 'password'));
         //validation
         $this->validate($req, [
             'name' => 'required|max:50',
@@ -34,7 +34,7 @@ class registerController extends Controller{
         //Sign in the user
         auth()->attempt($req->only('email', 'password'));
         //redirect page
-        return redirect()->route('dashboard')->withSuccess('You have signed-in successfully');
+        return redirect()->route('dashboard')->withSuccess('Your has successfully done.');
     }
 
 }

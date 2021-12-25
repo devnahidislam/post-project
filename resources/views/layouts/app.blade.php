@@ -26,8 +26,7 @@
         <ul class="flex items-center">
             @auth
                 <li>
-                    <a href="#"
-                        class="py-1 px-2 mr-4 bg-gray-300 text-pink-600 rounded-full font-medium">{{ auth()->user()->name }}</a>
+                    <a href="#" class="py-1 px-2 mr-4 bg-gray-300 text-pink-600 rounded-full font-medium">{{ auth()->user()->name }}</a>
                 </li>
                 <li>
                     <form action="{{ route('logout') }}" method="post">
@@ -41,7 +40,6 @@
                 <li>
                     <a href="{{ route('login') }}" class="py-1 px-2 bg-blue-400 rounded-sm">Login</a>
                 </li>
-                <li>
                 <li>
                     <a href="{{ route('register') }}" class="py-1 px-2 mx-2 bg-blue-400 rounded-sm">Register</a>
                 </li>

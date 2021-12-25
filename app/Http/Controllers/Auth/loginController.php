@@ -21,7 +21,7 @@ class loginController extends Controller
             return back()->with('status', 'Invalid Password');
         }else{
             //Redirect to Dashboard
-            return redirect()->route('dashboard');
+            return redirect()->route('dashboard')->withSuccess('You have login successfully');
         }
     }
 }

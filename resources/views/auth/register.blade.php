@@ -6,7 +6,7 @@
       <form action="{{ route('register') }}" method="post">
         @csrf
         <div class="mb-4">
-          <lavel for="name" class="sr-only">Name</lavel>
+          <label for="name" class="sr-only">Name</label>
           <input type="text" name="name" id="name" placeholder="Name" class="bg-gray-100 border-2 p-2 w-full rounded-lg @error('name') border-red-500 @enderror" value="{{ old('name') }}" >
 
           @error('name')
@@ -17,7 +17,7 @@
         </div>
 
         <div class="mb-4">
-          <lavel for="email" class="sr-only">Email</lavel>
+          <label for="email" class="sr-only">Email</label>
           <input type="text" name="email" id="email" placeholder="Email" class="bg-gray-100 border-2 p-2 w-full rounded-lg @error('email') border-red-500 @enderror" value="{{ old('email') }}" >
 
           @error('email')
@@ -28,7 +28,7 @@
         </div>
 
         <div class="mb-4">
-          <lavel for="username" class="sr-only">Username</lavel>
+          <label for="username" class="sr-only">Username</label>
           <input type="text" name="username" id="username" placeholder="Username" class="bg-gray-100 border-2 p-2 w-full rounded-lg @error('username') border-red-500 @enderror" value="{{ old('username') }}" >
 
           @error('username')
@@ -39,7 +39,7 @@
         </div>
 
         <div class="mb-4">
-          <lavel for="password" class="sr-only">Password</lavel>
+          <label for="password" class="sr-only">Password</label>
           <input type="password" name="password" id="password" placeholder="Choose a Password" class="bg-gray-100 border-2 p-2 w-full rounded-lg @error('password') border-red-500 @enderror" value="" >
 
           @error('password')
@@ -50,7 +50,7 @@
         </div>
 
         <div class="mb-4">
-          <lavel for="password" class="sr-only">Password Again</lavel>
+          <label for="password" class="sr-only">Password Again</label>
           <input type="password" name="password_confirmation" id="password_confirmation" placeholder="Confirm Password" class="bg-gray-100 border-2 p-2 w-full rounded-lg @error('password') border-red-500 @enderror" value="" >
         </div>
 
